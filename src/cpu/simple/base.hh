@@ -243,7 +243,7 @@ class BaseSimpleCPU : public BaseCPU, public ExecContext
             intSize = 0;
         }
 #endif
-
+#if 0
         /* clean the content every ROB_SIZE instructions */
         if (winSize >= ROB_SIZE) {
             regDepDelay.clear();
@@ -264,6 +264,7 @@ class BaseSimpleCPU : public BaseCPU, public ExecContext
         /* calculate delay of dest reg of this inst */
         for (int i = 0; i < curStaticInst->numDestRegs(); ++i)
             regDepDelay[curStaticInst->destRegIdx(i)] = maxDel + opLatencies[curStaticInst->opClass()];
+#endif
     }
 
     virtual Counter totalInsts() const
